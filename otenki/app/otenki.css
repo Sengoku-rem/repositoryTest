@@ -1,0 +1,240 @@
+/* キマリゴト */
+body {
+	font-family: 'Kaisei Opti', serif;
+	background-color: rgba(66, 177, 177, 0.428);
+	color: #222;
+}
+
+
+#weatherApp {
+	margin: 40px auto;
+	width: 90%;
+	background-color: rgba(255, 255, 255, 0.663);
+	padding: 2%;
+
+}
+
+/* トップページのエリア */
+.topArea h1 {
+	text-align: center;
+	font-size: 88px;
+	border-bottom: dashed 16px orange;
+	margin:0 200px 10px  200px;
+	padding-bottom: 10px;
+}
+
+.introduceArea {
+	text-align: center;
+	font-size: xx-large;
+}
+
+#title {
+	font-size: 170%;
+	color: rgb(51, 142, 142);
+	line-height: 90px;
+}
+
+/* 検索エリア */
+.searchArea {
+	height: 10%;
+	padding-left: 40px;
+	display: flex;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.3);
+	/* position: fixed; */
+}
+
+.searchBox {
+	background-color: #ffffff00;
+	margin-left: 650px;
+	border: none;
+	border-bottom: solid 1px #828181;
+
+	width: 300px;
+	height: 30px;
+}
+
+.searchIcon {
+	margin-left: 10px;
+}
+
+.logo {
+	width: 130px;
+	height: 130px;
+	line-height: 80px;
+	margin: 0;
+	color: whitesmoke;
+	background: #e61b8c;
+	border-radius: 40% 60% 40% 50% / 60% 60% 50% 60%;
+	text-align: center;
+}
+
+.logo:hover{
+	background: #a90e63;
+	border-radius: 60% 40% 50% 60% / 40% 60% 40% 50%;
+}
+
+
+/* データベースの表示 */
+.showDB {
+	font-size: x-large;
+
+	border: solid 2px #828181;
+	border-radius: 300px 20px 300px 20px / 20px 300px 20px 300px;
+	margin: 5%;
+	padding: 2%;
+
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.showDB h1{
+	text-align: center;
+}
+
+.showDBArea .listTitle{
+	color: whitesmoke;
+	padding: 50px 0;
+	font-size: 300%;
+	border-radius: 300px 20px 300px 20px / 20px 300px 20px 300px;
+
+}
+
+.showDB img {
+	width: 500px;
+	border-radius: 50%;
+	box-shadow: 0 3.5rem 3rem -3rem rgba(5, 5, 5, 0.689);;
+}
+
+/* 購入ボタンのデザイン */
+.buyBottom {
+	border: solid 1px #828181;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+
+	padding: 10px;
+	margin: 100px;
+	text-align: center;
+}
+
+.buyBottom:hover {
+	border: solid 1px #828181;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Topに戻るボタン */
+.pageTop {
+	position: fixed;
+	bottom: 100px;
+	right: 60px;
+	text-decoration: none;
+
+	border-radius: 300px 20px 300px 20px / 20px 300px 20px 300px;
+
+	font-size: 20pt;
+	padding: 2px;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pageTop:hover {
+	font-size: 20pt;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* 購入ページ */
+.showBoughtArea {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 300px 20px 300px 20px / 20px 300px 20px 300px;
+	padding: 2%;
+	margin: 20px 0;
+}
+
+.showBought {
+	width: 100px auto;
+}
+
+
+/* ナビ */
+.naviList {
+	list-style: none;
+	display: flex;
+	padding: 0;
+}
+
+.naviList li p {
+	font-size: 15pt;
+}
+
+.naviList li{
+	display: block;
+	width: 25%;
+	color: whitesmoke;
+	padding: 1px;
+	padding-left: 10px;
+	margin: 5px;
+	text-align: center;
+}
+
+.naviList a{
+display: block;
+position:rerative;
+margin:-10px;
+padding:10px;
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+.naviList li:hover {
+	background-color: rgb(30, 85, 85);
+}
+
+
+/*色指定*/
+.kirakira{
+	background-color: rgb(247, 149, 36);
+}
+.parapara{
+	background-color: rgb(163, 194, 10);
+}
+.zaza{
+	background-color: rgb(11, 162, 189);
+}
+.don{
+	background-color: rgb(193, 53, 123);
+}
+.gray{
+	background-color: rgb(150, 150, 150);
+}
+.red{
+	background-color: rgb(200, 100, 100);
+}
+.blue{
+	background-color: rgb(100, 100, 200);
+}
+.yellow{
+	background-color: rgb(200, 200, 100);
+}
+.hoshi1{
+	background-color: rgb(221, 198, 159);
+}
+.hoshi2{
+	background-color: rgb(201, 178, 139);
+}
+.hoshi3{
+	background-color: rgba(171, 148, 109);
+}
+.hoshi4{
+	background-color: rgb(141, 118, 79);
+}
+
+/*商品の表示*/
+.productBox{
+	display: flex;
+}
+
+.half{
+	width: 50%;
+}

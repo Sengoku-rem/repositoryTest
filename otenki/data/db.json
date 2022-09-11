@@ -1,0 +1,124 @@
+{
+  "Products": [
+    {
+      "id": 1,
+      "name": "快晴",
+      "stock": 10,
+      "image": "images/快晴.jpg",
+      "price": "6000円（税込）",
+      "explanation": "雲一つない快晴！気分晴れやか、気分爽快だ！",
+      "adjective": "キラキラどーん",
+      "nameGroup": "快晴天かいせいてんClearSunny",
+      "rare": "2つ",
+      "color": "赤青"
+    },
+    {
+      "id": 2,
+      "name": "晴れ",
+      "stock": 10,
+      "image": "images/晴れ.jpg",
+      "price": "5000円（税込）",
+      "explanation": "雲が少しあるけど晴れている。超すごしやすい！雲から覗く御光。",
+      "adjective": "パラパラざざー",
+      "nameGroup": "晴れはれ晴天せいてんSunny",
+      "rare": "1つ",
+      "color": "灰赤黄"
+    },
+    {
+      "id": 3,
+      "name": "曇天",
+      "stock": 10,
+      "image": "images/曇天.jpg",
+      "price": "6000円（税込）",
+      "explanation": "どーんって感じの雲一色。悪くないね。興味ないね。",
+      "adjective": "どーん",
+      "nameGroup": "曇天どんてんくもりCloudy",
+      "rare": "1つ",
+      "color": "灰"
+    },
+    {
+      "id": 4,
+      "name": "雨",
+      "stock": 10,
+      "image": "images/雨.jpg",
+      "price": "6000円（税込）",
+      "explanation": "雨足が強いようだ。水分子の衝突に打ち拉がれろ。",
+      "adjective": "パラパラざざー",
+      "nameGroup": "雨天あめRain",
+      "rare": "2つ",
+      "color": "青"
+    },
+    {
+      "id": 5,
+      "name": "雷",
+      "image": "images/雷.jpg",
+      "stock": 10,
+      "price": "10000円（税込）",
+      "explanation": "神のお怒りなるぞ。ひれ伏せ、崇めよ！ビリビリしちゃうぞ！！",
+      "adjective": "どーん",
+      "nameGroup": "雷かみなりThunderstorm",
+      "rare": "3つ",
+      "color": "黄"
+    },
+    {
+      "id": 6,
+      "name": "虹",
+      "stock": 10,
+      "image": "images/虹.jpg",
+      "price": "9000円（税込）",
+      "explanation": "ビフレストを渡って魂を先導する影が......。",
+      "adjective": "キラキラ",
+      "nameGroup": "虹にじRainbow",
+      "rare": "4つ",
+      "color": "赤青黄"
+    },
+    {
+      "id": 7,
+      "name": "濃霧",
+      "image": "images/濃霧.jpg",
+      "stock": 10,
+      "price": "9000円（税込）",
+      "explanation": "四方八方、霧まみれ。仙人に注意。",
+      "adjective": "ざざー",
+      "nameGroup": "濃霧のうむきりFog",
+      "rare": "3つ",
+      "color": "灰"
+    },
+    {
+      "id": 8,
+      "name": "雹",
+      "stock": 10,
+      "image": "images/雹.jpg",
+      "price": "10000円（税込）",
+      "explanation": "風穴が開く前にご避難ください。",
+      "adjective": "キラキラパラパラ",
+      "nameGroup": "雹ひょうふぶきHail",
+      "rare": "4つ",
+      "color": "赤青"
+    },
+    {
+      "id": 9,
+      "name": "雪",
+      "stock": 10,
+      "image": "images/雪.jpg",
+      "price": "10000円（税込）",
+      "explanation": "コンコン、ヒシヒシ、食べても美味しい。",
+      "adjective": "キラキラどーん",
+      "nameGroup": "吹雪ゆきふぶきSnow",
+      "rare": "3つ",
+      "color": "灰"
+    },
+    {
+      "id": 10,
+      "name": "砂嵐",
+      "stock": 10,
+      "image": "images/砂嵐.jpg",
+      "price": "10000円（税込）",
+      "explanation": "砂が目に入って痛い？それはそう。",
+      "adjective": "パラパラざざー",
+      "nameGroup": "砂嵐すなあらしSandstorm",
+      "rare": "4つ",
+      "color": "黄"
+    }
+  ]
+}

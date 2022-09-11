@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="otenki.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="otenki.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@500&display=swap" rel="stylesheet">
+	<title>Soramo You</title>
+</head>
+
+<body>
+	<div id="weatherApp">
+
+		<!-- サーチボックスとロゴ -->
+		<div class="searchArea">
+			<div class="logo" v-on:click="backTop">
+				<h2> そらもよう </h2>
+			</div>
+			<input class="searchBox" type="text" v-model="input" v-on:keydown.enter="searchWeatherByName">
+
+			<i class="material-icons searchIcon" v-on:click="searchWeatherByName" style="width: 10px;" id="searchIcon">search</i>
+		</div>
+
+
+		<!-- トップページ 最初のページ -->
+		<div class="topArea" v-if="showPage == 0">
+			<!-- 紹介文タイトル -->
+			<h1>お天気,売ってます！</h1>
+			<!-- 紹介文 -->
+			<div class="introduceArea">
+				<p>
+					2032年、Dr.Penguinによって開発された<br>
+					<span id="title">〜お天気変更マシーン「そらもよう」〜</span><br>
+					効果範囲と継続時間を設定するだけで、その場のお天気を変更してくれます！
+				</p>
+
+			</div>
+		</div>
+
+		<!-- 検索BOX先のページ -->
+		<div class="showDBArea" v-if="this.showPage == 100">
+			<div class="showDB" v-for="product in Products" v-bind:key="product.nameGroup">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 形容詞先のページ -->
+		<div class="showDBArea" v-if="this.showPage == 1">
+			<h1 class="kirakira listTitle">「キラキラ」のお天気</h1>
+
+			<div class="showDB" v-for="product in Products" v-bind:key="product.adjective">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 2">
+			<h1 class="parapara listTitle">「パラパラ」のお天気</h1>
+
+			<div class="showDB" v-for="product in Products" v-bind:key="product.adjective">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 3">
+			<h1 class="zaza listTitle">「ざざー」のお天気</h1>
+
+			<div class="showDB" v-for="product in Products" v-bind:key="product.adjective">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 4">
+			<h1 class="don listTitle">「どーん」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.adjective">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 5">
+			<h1 class="gray listTitle">「灰色」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.color">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 6">
+			<h1 class="red listTitle">「赤色」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.color">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 7">
+			<h1 class="blue listTitle">「青色」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.color">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 8">
+			<h1 class="yellow listTitle">「黄色」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.color">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 9">
+			<h1 class="hoshi1 listTitle">「☆１」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.rare">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 10">
+			<h1 class="hoshi2 listTitle">「☆２」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.rare">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 11">
+			<h1 class="hoshi3 listTitle">「☆３」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.rare">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showDBArea" v-if="showPage == 12">
+			<h1 class="hoshi4 listTitle">「☆４」のお天気</h1>
+			
+			<div class="showDB" v-for="product in Products" v-bind:key="product.rare">
+				<div class="productBox">
+					<div class="half">
+						<img v-bind:src="product.image">
+					</div>
+					<div class="half">
+						<h1>ーーー {{ product.name }} ーーー</h1>
+						<p>{{ product.price }}</p>
+						<p>在庫数 {{ product.stock }}</p>
+						<p>{{ product.explanation }}</p>
+						<p v-on:click="changePage_50" v-bind:dataId="product.id" class="buyBottom">購入する</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 購入ページ -->
+		<div class="showBoughtArea" v-if="showPage == 50">
+			<div class="showBought">
+
+				<h1>ご購入ありがとうございます！</h1>
+				<h2>使い方</h2>
+				<p>「効果範囲」と「継続時間」を入力し地面に設置してください。30秒後、マシーンが起動し天気を変更します。
+					<br>起動中に触れても問題はございません。</p>
+				<h2>留意点</h2>
+				<p>お天気変更マシーン「そらもよう」は一度きりしか使用できません。ご使用後はお住まいの自治会のルールに従って捨ててください。
+				</p>
+
+			</div>
+		</div>
+
+		<hr>
+
+		<!-- お天気アイコンナビゲーション -->
+		<nav>
+			<h2>形容詞からお天気を見てみよう！</h2>
+			<div class="listFloat">
+				<ul class="naviList">
+					<li v-on:click="changePage_1" class="kirakira"><a href="#"><p>キラキラ</p></a></li>
+					<li v-on:click="changePage_2" class="parapara"><a href="#"><p>パラパラ</p></a></li>
+					<li v-on:click="changePage_3" class="zaza"><a href="#"><p>ざざー</p></a></li>
+					<li v-on:click="changePage_4" class="don"><a href="#"><p>どーん</p></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<nav>
+			<h2>色からお天気を見てみよう！</h2>
+			<div class="listFloat">
+				<ul class="naviList">
+					<li v-on:click="changePage_5" class="gray"><a href="#"><p>灰</p></a></li>
+					<li v-on:click="changePage_6" class="red"><a href="#"><p>赤</p></a></li>
+					<li v-on:click="changePage_7" class="blue"><a href="#"><p>青</p></a></li>
+					<li v-on:click="changePage_8" class="yellow"><a href="#"><p>黄</p></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<nav>
+			<h2>レア度からお天気を見てみよう！</h2>
+			<div class="listFloat">
+				<ul class="naviList">
+					<li v-on:click="changePage_9" class="hoshi1"><a href="#"><p>☆１</p></a></li>
+					<li v-on:click="changePage_10" class="hoshi2"><a href="#"><p>☆２</p></a></li>
+					<li v-on:click="changePage_11" class="hoshi3"><a href="#"><p>☆３</p></a></li>
+					<li v-on:click="changePage_12" class="hoshi4"><a href="#"><p>☆４</p></a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<a href="#" class="pageTop"><div class="arrow"></div>　↑　</a>
+
+	</div>
+</body>
+
+</html>
